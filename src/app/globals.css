@@ -326,3 +326,30 @@ body {
     padding-right: 3rem;
   }
 }
+
+/* Mobile Header Optimizations */
+@media (max-width: 767px) {
+  /* Ensure proper touch target sizes for mobile */
+  header button,
+  header a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Mobile menu slide-in animation */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Apply animation to mobile menu */
+  header nav[class*="flex-col"] {
+    animation: slideDown 0.2s ease-out;
+  }
+}
