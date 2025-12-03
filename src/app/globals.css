@@ -1,59 +1,69 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* SD UNPLUGGED DESIGN SYSTEM
+   Warm San Diego-inspired podcast aesthetic
+   Deep ocean blues + sunset oranges + clean whites
+   All colors in HSL format
 */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* Background Colors - Deep Navy Blues */
+  --background: 215 60% 8%;        /* #0f1720 - Main page background */
+  --foreground: 210 40% 98%;       /* #f5f7fa - Primary text */
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* Card/Surface Colors */
+  --card: 215 50% 14%;             /* #1a2332 - Card backgrounds */
+  --card-foreground: 210 40% 98%;  /* #f5f7fa - Card text */
 
-  /* Popovers with white background */
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  /* Popover Colors */
+  --popover: 215 50% 14%;
+  --popover-foreground: 210 40% 98%;
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
+  /* Primary - Sunset Orange (CTA buttons, highlights) */
+  --primary: 14 100% 60%;          /* #ff6b35 - Vibrant orange */
+  --primary-foreground: 215 60% 8%; /* Dark text on orange */
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  /* Secondary - Light Navy (sections, alternating backgrounds) */
+  --secondary: 215 55% 24%;        /* #1e3a5f - Lighter navy sections */
+  --secondary-foreground: 210 40% 98%;
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
+  /* Muted - Medium gray text and subtle backgrounds */
+  --muted: 215 30% 35%;            /* #8892a0 - Muted elements */
+  --muted-foreground: 210 20% 80%; /* #cbd5e0 - Secondary text */
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  /* Accent - Warm coral (hover states, secondary CTAs) */
+  --accent: 14 100% 69%;           /* #ff8c61 - Light coral */
+  --accent-foreground: 215 60% 8%;
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
-  --destructive-foreground: 0 0% 100%;
+  /* Destructive - Error red */
+  --destructive: 0 70% 60%;
+  --destructive-foreground: 210 40% 98%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  /* Borders and Inputs */
+  --border: 215 40% 25%;           /* #2a3849 - Borders */
+  --input: 215 40% 25%;
+  --ring: 14 100% 60%;             /* Orange focus ring */
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border Radius */
+  --radius: 0.5rem;                /* 8px - Modern rounded */
 
-  /* Sidebar: Clean white with black text */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  /* Sidebar Colors */
+  --sidebar-background: 215 55% 10%;
+  --sidebar-foreground: 210 40% 98%;
+  --sidebar-primary: 14 100% 60%;
+  --sidebar-primary-foreground: 215 60% 8%;
+  --sidebar-accent: 215 50% 14%;
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-border: 215 40% 25%;
+  --sidebar-ring: 14 100% 60%;
+
+  /* Custom SD Unplugged Colors */
+  --color-ocean-blue: 215 60% 8%;
+  --color-navy-light: 215 55% 24%;
+  --color-sunset-orange: 14 100% 60%;
+  --color-coral-light: 14 100% 69%;
+  --color-surface: 215 50% 14%;
 }
 
 .dark {
@@ -171,22 +181,78 @@ All colors MUST be HSL.
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
+/* SD Unplugged Typography - Podcast-focused hierarchy */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: hsl(var(--foreground));
+  line-height: 1.2;
 }
 
-/* Clean button styles */
+h1 {
+  font-size: 3rem;      /* 48px - Hero headings */
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;   /* 36px - Section titles */
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.875rem;  /* 30px - Subsection headings */
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.5rem;    /* 24px - Card titles */
+  margin-bottom: 0.875rem;
+}
+
+h5 {
+  font-size: 1.25rem;   /* 20px - Small headings */
+  margin-bottom: 0.75rem;
+}
+
+h6 {
+  font-size: 1.125rem;  /* 18px - Minor headings */
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.75;
+}
+
+/* Podcast-specific button styles */
 button {
-  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease;
+}
+
+/* Link styles */
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--accent));
 }
 
 /* Subtle shadows for depth */

@@ -7,6 +7,8 @@ import { ZyloProvider } from "@/lib/zylo/provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "SD Unplugged | San Diego Podcast for Unsigned Artists",
+  description: "Discover authentic San Diego talent through unfiltered interviews and performances. Support independent artists and their creative journey.",
 };
 
 export default function RootLayout({
@@ -40,12 +42,14 @@ export default function RootLayout({
           <ZyloProvider>
             <ThemeProvider
               attribute="class"
-              defaultTheme="light"
+              defaultTheme="dark"
               enableSystem
               disableTransitionOnChange
             >
               <TooltipProvider>
+                <SiteNav />
                 {children}
+                <SiteFooter />
                 <Toaster />
                 <Sonner />
               </TooltipProvider>
